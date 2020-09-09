@@ -1,0 +1,16 @@
+<table align="center" border="0">
+    <form action="{% url 'update_details' %}" method="post">
+        {% csrf_token %}
+    <tr><th><h1 style="font-size: 20px; color: darkblue" >Update Details</h1></th></tr>
+            <tr><th >ID:       <input type="text" value="{{ data.ID }}" readonly name="t5"></th></tr>
+
+    <tr><th>Plan_Name:         <input type="text" value="{{ data.Plan_Name }}"  name="t1"></th></tr>
+        <tr><th>Plan_Formula:<input type="text" value="{{ data.Plan_Formula }}"  name="t2"></th></tr>
+    <tr><th>Location:<input type="text" value="{{ data.Location }}"  name="t3"></th></tr>
+    <tr><th>Plan_Staus:<input type="text" value="{{ data.Plan_Status }}"  name="t4"></th></tr>
+        <tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr>
+        <tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr><tr><th></th></tr>
+    <tr><th><button type="submit" class="btn-primary">Update</button> </th></tr>
+    </form>
+
+</table>

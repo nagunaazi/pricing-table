@@ -1,0 +1,54 @@
+
+<html>
+<body>
+    <form action="{% url 'save' %}" method="post">
+        {% csrf_token %}
+        <table align="center" border="2">
+
+            {{ ef }}
+
+            <tr><th><button type="submit">Save</button></th></tr>
+            <tr><th colspan="2
+">
+                 {% for x in messages %}
+                         <h3>{{ x }}</h3>
+                {% endfor %}
+            </th></tr>
+        </table>
+    </form>
+
+
+<table align="center" border="2">
+          <tr>
+              <th style="text-align: center">ID</th>
+              <th  style="text-align: center">plan name</th>
+              <th  style="text-align: center">plan formula</th>
+              <th  style="text-align: center">location</th>
+              <th  style="text-align: center">plan status</th>
+              <th  style="text-align: center">created date</th>
+              <th  style="text-align: center">updated date</th>
+              <th colspan="4" style="text-align: center">action</th>
+          </tr>
+          {% for x in data%}
+              <tr>
+                  <th  style="text-align: center">{{ x.ID }}</th>
+                  <th  style="text-align: center">{{ x.Plan_Name }}</th>
+                  <th  style="text-align: center">{{ x.Plan_Formula }}</th>
+                  <th style="text-align: center">{{ x.Location }}</th>
+                  <th style="text-align: center">{{ x.Plan_Status }}</th>
+                  <th  style="text-align: center">{{ x.Created_Date }}</th>
+                  <th  style="text-align: center">{{ x.Updated_Date}}</th>
+                  <th>
+                  <form action="{% url 'update' %}" method="post">
+                      {% csrf_token %}
+                  <input type="hidden" value="{{ x.ID }}" readonly name="i1">
+                      <button type="submit" class="btn btn-primary">Edit</button>
+                  </form>
+                  </th>
+                  <th> <a href="{% url 'delete' %}?ID={{ x.ID }}" style="color: red" class=" btn btn-danger">Delete</a></th>
+              </tr>
+          {% endfor %}
+      </table>
+
+</body>
+</html>
